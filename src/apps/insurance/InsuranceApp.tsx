@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Info } from 'lucide-react'
+import { RangeSlider } from '../../components/ui/RangeSlider'
 import { TechBadge } from '../../components/ui/TechBadge'
 import { formatCurrency } from '../../lib/format'
 import { cn } from '../../lib/cn'
@@ -124,8 +125,7 @@ export function InsuranceApp() {
                       {formatCurrency(state.annualRevenue, true)}
                     </span>
                   </div>
-                  <input
-                    type="range"
+                  <RangeSlider
                     min={0}
                     max={5_000_000}
                     step={25_000}
@@ -136,7 +136,7 @@ export function InsuranceApp() {
                         `Revenue → ${e.target.value}`,
                       )
                     }
-                    className="mt-2 w-full accent-sky-500"
+                    className="mt-2"
                   />
                   {state.annualRevenue <= 0 ? (
                     <span className="mt-1 flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400">
@@ -164,8 +164,7 @@ export function InsuranceApp() {
                       {state.employees}
                     </span>
                   </div>
-                  <input
-                    type="range"
+                  <RangeSlider
                     min={0}
                     max={250}
                     step={1}
@@ -176,7 +175,7 @@ export function InsuranceApp() {
                         `Employees → ${e.target.value}`,
                       )
                     }
-                    className="mt-2 w-full accent-sky-500"
+                    className="mt-2"
                   />
                   {state.employees < 1 ? (
                     <span className="mt-1 flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400">
@@ -211,8 +210,7 @@ export function InsuranceApp() {
                       {formatCurrency(state.coverageLimit, true)}
                     </span>
                   </div>
-                  <input
-                    type="range"
+                  <RangeSlider
                     min={250_000}
                     max={5_000_000}
                     step={50_000}
@@ -223,7 +221,7 @@ export function InsuranceApp() {
                         `Coverage → ${e.target.value}`,
                       )
                     }
-                    className="mt-2 w-full accent-sky-500"
+                    className="mt-2"
                   />
                 </label>
               </motion.div>
