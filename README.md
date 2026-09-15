@@ -16,13 +16,17 @@ npm install
 npm run dev
 ```
 
-## Build / deploy
+## Deploy
 
-```bash
-npm run build
-```
+**GitHub:** https://github.com/Chrismmaldonado/proof-hub
 
-Deploy `dist/` to Cloudflare Pages, Vercel, or Netlify (static SPA).
+**Cloudflare (Workers Git UI — build + deploy commands):**
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy`
+
+`wrangler.toml` serves `./dist` as a SPA (static assets).
+
+**Classic Pages UI** (if you find it): output directory `dist`, build `npm run build`.
 
 ## Note
 
