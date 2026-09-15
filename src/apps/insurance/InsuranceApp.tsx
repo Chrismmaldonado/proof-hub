@@ -89,32 +89,34 @@ export function InsuranceApp() {
                 className="space-y-4"
               >
                 <h3 className="text-sm font-semibold">Business profile</h3>
-                <label className="block text-xs">
-                  <span className="text-[var(--color-ink-muted)]">Industry</span>
-                  <select
-                    value={state.industry}
-                    onChange={(e) =>
-                      patch(
-                        { industry: e.target.value as Industry | '' },
-                        `Industry → ${e.target.value || '(none)'}`,
-                      )
-                    }
-                    className="mt-1 w-full rounded-lg border border-[var(--color-line)] bg-transparent px-2.5 py-2.5 text-sm outline-none focus:border-sky-500"
-                  >
-                    <option value="">Select industry…</option>
+                <div>
+                  <p className="text-xs text-[var(--color-ink-muted)]">Industry</p>
+                  <div className="mt-1.5 grid gap-2 sm:grid-cols-2">
                     {INDUSTRIES.map((i) => (
-                      <option key={i} value={i}>
+                      <button
+                        key={i}
+                        type="button"
+                        onClick={() =>
+                          patch({ industry: i }, `Industry → ${i}`)
+                        }
+                        className={cn(
+                          'rounded-lg border px-3 py-2.5 text-left text-sm transition',
+                          state.industry === i
+                            ? 'border-sky-500 bg-sky-500/10 font-medium text-[var(--color-ink)]'
+                            : 'border-[var(--color-line)] bg-[var(--color-surface-elevated)] text-[var(--color-ink)] hover:border-slate-300 dark:hover:border-zinc-600',
+                        )}
+                      >
                         {i}
-                      </option>
+                      </button>
                     ))}
-                  </select>
+                  </div>
                   {!state.industry ? (
                     <span className="mt-1 flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400">
                       <Info className="size-3" />
                       Industry is required
                     </span>
                   ) : null}
-                </label>
+                </div>
                 <label className="block text-xs">
                   <div className="flex justify-between text-[var(--color-ink-muted)]">
                     <span>Annual revenue</span>
