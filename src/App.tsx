@@ -74,7 +74,7 @@ function Shell() {
             </p>
             <h1 className="text-lg font-semibold tracking-tight">Proof Hub</h1>
             <p className="mt-0.5 hidden text-xs text-[var(--color-ink-muted)] md:block">
-              Chris Maldonado · Radcliffe
+              Capability demos
             </p>
           </div>
           <div className="flex items-center gap-1 md:mt-4 md:justify-between">
